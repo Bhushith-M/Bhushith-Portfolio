@@ -141,9 +141,10 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr); /* 50-50 layout */
+      grid-template-columns: 1fr 1fr; /* perfect 50-50 balance */
       gap: 40px;
-      align-items: stretch;
+      align-items: start; /* makes both sides align from the top */
+      padding-top: 40px;
     }
 
     .badge {
@@ -598,15 +599,20 @@
     <!-- Hero -->
     <section class="hero">
       <div class="container hero-grid">
-        <div>
+
+        <!-- LEFT SIDE: INTRO -->
+        <div class="hero-left">
           <div class="badge">
             <span class="badge-dot"></span>
             <span>Actively learning & building</span>
+            <span class="badge-pill">BBA • Finance • Blockchain</span>
           </div>
+          
           <h1 class="hero-title">
             Emerging leader & <span>growth-driven learner</span> exploring
             business, finance and blockchain.
           </h1>
+          
           <p class="hero-subtitle">
             I’m Bhushith, a BBA student with a strong inclination towards
             leadership, management, and finance. I learn best by doing-leading
@@ -621,37 +627,44 @@
             <span class="tag">Aspiring entrepreneur</span>
           </div>
 
-          </div>
           <div class="hero-footnote">
             Built around a simple idea: <strong>keep learning, keep building,
             keep leading.</strong>
           </div>
         </div>
 
-        <aside class="hero-card">
+        <!-- RIGHT SIDE: GROWTH DASHBOARD -->
+        <aside class="hero-card hero-right">
           <div class="hero-card-inner">
             <div class="hero-pill-row">
               <span class="pill-soft">Growth Dashboard</span>
             </div>
+            
             <div class="hero-metric">
               <span>Leadership roles held</span>
               <strong>3+</strong>
             </div>
+            
             <div class="hero-metric">
               <span>Events coordinated / supported</span>
               <strong>10+*</strong>
             </div>
+            
             <div class="hero-metric">
               <span>Key focus areas</span>
               <strong>Leadership • Finance</strong>
             </div>
+            
             <div class="progress-track">
               <div class="progress-bar"></div>
             </div>
+            
             <div class="progress-caption">
               *Across school events, Interact Club initiatives, and inter-school
               programs.
-            </aside>
+            </div>
+          </div>
+        </aside>
           
       </div>
     </section>
