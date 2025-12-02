@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bhushith M | Digital Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Digital portfolio of Bhushith M – learner, emerging leader, and aspiring finance professional."
+  />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-elevated: #0b1020;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: rgba(148, 163, 184, 0.18);
+      --radius-lg: 18px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.85);
+      --section-pad: 72px;
+      --max-width: 1040px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0b1220 0, #020617 52%, #000 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    .noise-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.12;
+      background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+      mix-blend-mode: soft-light;
+      z-index: 0;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(22px);
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.96),
+        rgba(15, 23, 42, 0.82),
+        transparent
+      );
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-name {
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+    }
+
+    .brand-tag {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 0.86rem;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, #38bdf8, #a855f7);
+      transition: width 0.22s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 40px 0 var(--section-pad);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
+      gap: 38px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: radial-gradient(circle at top left, #0f172a, #020617);
+      box-shadow: 0 12px 38px rgba(15, 23, 42, 0.9);
+      margin-bottom: 18px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle at center, #22c55e, #16a34a);
+      box-shadow: 0 0 15px rgba(34, 197, 94, 0.8);
+    }
+
+    .badge-pill {
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.16);
+      color: #e0f2fe;
+      font-size: 0.72rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 3vw, 2.9rem);
+      font-weight: 650;
+      letter-spacing: 0.02em;
+      margin-bottom: 10px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(to right, #38bdf8, #a855f7);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin-bottom: 18px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .tag {
+      font-size: 0.76rem;
+      padding: 6px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .tag.accent {
+      border-color: rgba(56, 189, 248, 0.9);
+      background: radial-gradient(circle at top left, #0b1120, #020617);
+      color: #e0f2fe;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 9px 18px;
+      font-size: 0.86rem;
+      border: 1px solid var(--border-subtle);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-main);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.13s ease, box-shadow 0.13s ease,
+        border-color 0.13s ease, background 0.13s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, #38bdf8, #a855f7);
+      border-color: transparent;
+      box-shadow: 0 16px 35px rgba(56, 189, 248, 0.3);
+      color: #0b1120;
+      font-weight: 500;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 50px rgba(56, 189, 248, 0.35);
+    }
+
+    .btn-ghost {
+      border-style: dashed;
+      color: var(--text-muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(148, 163, 184, 0.7);
+    }
+
+    .hero-footnote {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .hero-card {
+      border-radius: 24px;
+      padding: 20px 18px;
+      background: radial-gradient(circle at top left, #0b1120, #020617);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -60%;
+      background: radial-gradient(
+        circle at top,
+        rgba(56, 189, 248, 0.18),
+        transparent 60%
+      );
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-pill-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .pill-soft {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+    }
+
+    .hero-metric {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 0.78rem;
+      margin-bottom: 4px;
+      color: var(--text-muted);
+    }
+
+    .hero-metric strong {
+      font-size: 1rem;
+      color: var(--text-main);
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      overflow: hidden;
+      margin-top: 12px;
+      margin-bottom: 4px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 74%;
+      background: linear-gradient(to right, #38bdf8, #a855f7);
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.8);
+    }
+
+    .progress-caption {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    /* Sections */
+    section {
+      padding: var(--section-pad) 0;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-size: 1.12rem;
+      font-weight: 580;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    .section-pill {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .section-description {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      max-width: 620px;
+    }
+
+    /* About */
+    .about-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 26px;
+    }
+
+    .about-text p {
+      font-size: 0.92rem;
+      color: var(--text-main);
+      margin-bottom: 10px;
+    }
+
+    .about-text p span.highlight {
+      color: #e0f2fe;
+      font-weight: 500;
+    }
+
+    .about-list {
+      list-style: none;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    .about-list li::before {
+      content: "• ";
+      color: #38bdf8;
+    }
+
+    .about-side {
+      border-radius: var(--radius-lg);
+      border: 1px dashed rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+      padding: 14px 16px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .about-side strong {
+      color: #e5e7eb;
+    }
+
+    /* Cards / grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      background: rgba(15, 23, 42, 0.94);
+      border: 1px solid var(--border-subtle);
+      padding: 14px 14px 13px;
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.8);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 6px;
+      align-items: baseline;
+    }
+
+    .card-title {
+      font-size: 0.92rem;
+      font-weight: 520;
+    }
+
+    .card-meta {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .card-body {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 0.72rem;
+    }
+
+    .card-tag {
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .card-highlight {
+      background: var(--accent-soft);
+      border-color: rgba(56, 189, 248, 0.8);
+      color: #e0f2fe;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .skills-group-title {
+      font-size: 0.84rem;
+      font-weight: 550;
+      margin-bottom: 6px;
+      color: #e5e7eb;
+    }
+
+    .skills-list {
+      list-style: none;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .skills-list li {
+      margin-bottom: 3px;
+    }
+
+    /* Footer (simple, since no contact section requested) */
+    footer {
+      padding: 32px 0 24px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      margin-top: 32px;
+    }
+
+    footer .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid,
+      .about-layout,
+      .grid-2,
+      .skills-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: 24px;
+      }
+
+      .hero-grid {
+        gap: 26px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        display: none;
+      }
+
+      :root {
+        --section-pad: 56px;
+      }
+
+      .hero-title {
+        font-size: 1.9rem;
+      }
+
+      .hero-card {
+        padding: 16px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="noise-layer"></div>
+  <div class="page">
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="container navbar-inner">
+        <div class="brand">
+          <div class="brand-name">BHUSHITH&nbsp;M</div>
+          <div class="brand-tag">Learner • Leadership • Finance</div>
+        </div>
+        <nav class="nav-links">
+          <a href="#about">About</a>
+          <a href="#education">Education</a>
+          <a href="#por">Positions</a>
+          <a href="#leadership">Leadership</a>
+          <a href="#achievements">Achievements</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="badge">
+            <span class="badge-dot"></span>
+            <span>Actively learning & building</span>
+            <span class="badge-pill">BBA • Leadership & Finance</span>
+          </div>
+          <h1 class="hero-title">
+            Emerging leader & <span>growth-driven learner</span> exploring
+            business and finance.
+          </h1>
+          <p class="hero-subtitle">
+            I’m Bhushith, a BBA student with a strong inclination towards
+            leadership, management, and finance. I learn best by doing—leading
+            school bodies, managing large-scale events, and working on ideas
+            that create tangible impact.
+          </p>
+
+          <div class="hero-tags">
+            <span class="tag accent">Vice-Head Boy • DPS Bangalore North</span>
+            <span class="tag">President – Interact Club</span>
+            <span class="tag">Event leadership & execution</span>
+            <span class="tag">Aspiring finance professional</span>
+          </div>
+
+          <div class="hero-actions">
+            <!-- Replace # with your resume link (Google Drive, etc.) -->
+            <a href="#" class="btn btn-primary" target="_blank" rel="noreferrer">
+              View Resume
+              <span>↗</span>
+            </a>
+            <a href="#projects" class="btn btn-ghost">Skip to projects ↓</a>
+          </div>
+          <div class="hero-footnote">
+            Built around a simple idea: <strong>keep learning, keep building,
+            keep leading.</strong>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="hero-card-inner">
+            <div class="hero-pill-row">
+              <span class="pill-soft">Growth Dashboard</span>
+              <span class="pill-soft">Updated: 2025</span>
+            </div>
+            <div class="hero-metric">
+              <span>Leadership roles held</span>
+              <strong>4+</strong>
+            </div>
+            <div class="hero-metric">
+              <span>Events coordinated / supported</span>
+              <strong>10+*</strong>
+            </div>
+            <div class="hero-metric">
+              <span>Key focus areas</span>
+              <strong>Leadership • Finance</strong>
+            </div>
+            <div class="progress-track">
+              <div class="progress-bar"></div>
+            </div>
+            <div class="progress-caption">
+              *Across school events, Interact Club initiatives, and inter-school
+              programs.
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="section-title">About Me</h2>
+          <span class="section-pill">Learner • Systems thinker • Team player</span>
+        </div>
+        <div class="about-layout">
+          <div class="about-text">
+            <p>
+              I see myself first as a <span class="highlight">learner</span>.
+              Every role I take—whether it’s being Vice-Head Boy, leading a club,
+              or helping run large events—is an opportunity to understand how
+              people, systems, and decisions work in real life.
+            </p>
+            <p>
+              My interests lie at the intersection of
+              <span class="highlight">leadership, management, and finance</span>.
+              I enjoy taking ownership, working with diverse teams, and breaking
+              down complex tasks into clear action steps.
+            </p>
+            <p>
+              Outside academics, I’m consistent with my fitness routine and love
+              playing sports—not for trophies, but for the discipline, teamwork,
+              and resilience they build.
+            </p>
+            <ul class="about-list">
+              <li>Curious about how companies make financial and strategic decisions.</li>
+              <li>Enjoy planning, structuring, and executing events end-to-end.</li>
+              <li>Believe in learning publicly and improving with every iteration.</li>
+            </ul>
+          </div>
+          <aside class="about-side">
+            <strong>Quick snapshot</strong>
+            <span>🎓 BBA student exploring leadership & finance.</span>
+            <span>🧩 Enjoys solving execution problems in real-world contexts.</span>
+            <span>🧠 Focused on building a strong foundation in business thinking.</span>
+            <span>📈 Long-term goal: build and lead high-impact teams and ventures.</span>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="section-title">Education</h2>
+          <span class="section-pill">Foundation in business & leadership</span>
+        </div>
+        <div class="section-description">
+          A brief overview of my academic journey so far. Replace placeholders
+          with your exact details (institution name, years, grades).
+        </div>
+        <div class="grid-2">
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Bachelor of Business Administration (BBA)</div>
+                <div class="card-meta">
+                  [College / University Name] • [City] • [Year–Year]
+                </div>
+              </div>
+              <span class="card-tag card-highlight">Current</span>
+            </div>
+            <div class="card-body">
+              Focused on core business fundamentals, with interests in
+              <strong>finance</strong>, <strong>management</strong>, and
+              decision-making. Actively looking to connect classroom learning
+              with real-world leadership experiences.
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Schooling – DPS Bangalore North</div>
+                <div class="card-meta">Delhi Public School, Bangalore North</div>
+              </div>
+              <span class="card-tag">Completed</span>
+            </div>
+            <div class="card-body">
+              Served as <strong>Vice-Head Boy</strong> and held multiple
+              responsibilities in student leadership and event management,
+              shaping my interest in people, systems, and organisational
+              behaviour.
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Positions of Responsibility -->
+    <section id="por">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="section-title">Positions of Responsibility</h2>
+          <span class="section-pill">Learning by leading</span>
+        </div>
+        <div class="grid-2">
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Vice-Head Boy</div>
+                <div class="card-meta">DPS Bangalore North</div>
+              </div>
+              <span class="card-tag card-highlight">Student Leadership</span>
+            </div>
+            <div class="card-body">
+              Represented the student body, coordinated with school management,
+              and supported discipline and culture-building activities across
+              grades. Learned how to balance authority with empathy.
+            </div>
+            <div class="card-tags">
+              <span class="card-tag">People management</span>
+              <span class="card-tag">Communication</span>
+              <span class="card-tag">Decision-making</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">President – Interact Club</div>
+                <div class="card-meta">DPS Bangalore North</div>
+              </div>
+              <span class="card-tag card-highlight">Service & Impact</span>
+            </div>
+            <div class="card-body">
+              Led the Interact Club in planning and executing initiatives for
+              underprivileged children, including fundraising and awareness
+              campaigns. Learned how to mobilise teams around a shared cause.
+            </div>
+            <div class="card-tags">
+              <span class="card-tag">Fundraising</span>
+              <span class="card-tag">Team coordination</span>
+              <span class="card-tag">Stakeholder communication</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leadership Experiences -->
+    <section id="leadership">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="section-title">Leadership Experiences</h2>
+          <span class="section-pill">Execution in real contexts</span>
+        </div>
+        <div class="grid-2">
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">
+                  Lead – Impressions (Inter-School Competition)
+                </div>
+                <div class="card-meta">DPS Bangalore North</div>
+              </div>
+              <span class="card-tag">Event leadership</span>
+            </div>
+            <div class="card-body">
+              Played a key role in planning and coordinating
+              <strong>Impressions</strong>, an inter-school competition. Worked
+              closely with teams, faculty, and participants to ensure smooth
+              scheduling, communication, and on-ground execution.
+            </div>
+            <div class="card-tags">
+              <span class="card-tag">Planning & logistics</span>
+              <span class="card-tag">Teamwork</span>
+              <span class="card-tag">Problem-solving</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Security In-Charge – DPS Habba</div>
+                <div class="card-meta">DPS Bangalore North</div>
+              </div>
+              <span class="card-tag">Operational leadership</span>
+            </div>
+            <div class="card-body">
+              Managed security and crowd movement for <strong>DPS Habba</strong>,
+              a large-scale school event. Coordinated with volunteers and staff,
+              enforced entry/exit protocols, and responded to on-ground
+              situations in real time.
+            </div>
+            <div class="card-tags">
+              <span class="card-tag">Risk awareness</span>
+              <span class="card-tag">On-ground coordination</span>
+              <span class="card-tag">Responsibility</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements -->
+    <section id="achievements">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="section-title">Achievements</h2>
+          <span class="section-pill">What I’ve been trusted with</span>
+        </div>
+        <article class="card">
+          <div class="card-body">
+            <ul class="about-list">
+              <li>Appointed <strong>Vice-Head Boy</strong> at DPS Bangalore North.</li>
+              <li>President of <strong>Interact Club</strong>, leading multiple social-impact initiatives.</li>
+              <li>Led the inter-school competition <strong>Impressions</strong>.</li>
+              <li>Served as <strong>Security In-Charge</strong> for DPS Habba.</li>
+              <li>Consistently recognized for reliability, ownership, and discipline in group projects and events.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="section-title">Projects</h2>
+          <span class="section-pill">Learning in action</span>
+        </div>
+        <div class="section-description">
+          Add real projects here from your BBA coursework, side learning, or
+          personal experiments (for example: finance assignments, market
+          research, case studies, or leadership reflections).
+        </div>
+        <div class="grid-2">
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">[Project Title – Finance / Business]</div>
+                <div class="card-meta">BBA Coursework / Self-Initiated</div>
+              </div>
+              <span class="card-tag">Finance / Strategy</span>
+            </div>
+            <div class="card-body">
+              Briefly describe what you did, what problem you were exploring,
+              and what you learned. For example: analysed a company’s annual
+              report, studied its key ratios, and reflected on how management
+              decisions showed up in the numbers.
+            </div>
+            <div class="card-tags">
+              <span class="card-tag">Analysis</span>
+              <span class="card-tag">Research</span>
+              <span class="card-tag">Presentation</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">[Leadership Reflection / Case Study]</div>
+                <div class="card-meta">Personal learning project</div>
+              </div>
+              <span class="card-tag">Leadership</span>
+            </div>
+            <div class="card-body">
+              Use this to document how leading an event, club, or initiative
+              taught you something about people, systems, and decision-making.
+              Focus on your thought process, not just the outcome.
+            </div>
+            <div class="card-tags">
+              <span class="card-tag">Reflection</span>
+              <span class="card-tag">Writing</span>
+              <span class="card-tag">Growth mindset</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="section-title">Skills</h2>
+          <span class="section-pill">In progress, by design</span>
+        </div>
+        <div class="section-description">
+          A snapshot of the skills I’m actively developing through academics,
+          leadership roles, and self-learning.
+        </div>
+        <div class="skills-grid">
+          <div class="card">
+            <div class="skills-group-title">Leadership & People</div>
+            <ul class="skills-list">
+              <li>Team coordination & collaboration</li>
+              <li>Event planning & execution</li>
+              <li>Public speaking & moderation</li>
+              <li>Conflict handling in groups</li>
+              <li>Responsibility & ownership</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="skills-group-title">Business & Finance (Developing)</div>
+            <ul class="skills-list">
+              <li>Basics of financial statements</li>
+              <li>Introductory ratio analysis</li>
+              <li>Business fundamentals (BBA)</li>
+              <li>Interest in equity markets</li>
+              <li>Understanding companies & sectors</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="skills-group-title">Tools & Workflows</div>
+            <ul class="skills-list">
+              <li>Google Workspace / MS Office</li>
+              <li>Presentation building (PPT)</li>
+              <li>Basic Excel / Sheets</li>
+              <li>Online collaboration tools</li>
+              <li>Time management & planning</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Minimal Footer -->
+    <footer>
+      <div class="container footer-inner">
+        <span>© <span id="year"></span> Bhushith M. All rights reserved.</span>
+        <span>Built as a living portfolio of my learning journey.</span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
